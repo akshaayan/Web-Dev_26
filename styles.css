@@ -1,0 +1,12 @@
+h1 {
+color: blue;
+font-size: 24px;
+}
+p {
+font-family: Arial, sans-serif;
+}
+.highlight {
+    background-color: yellow;
+    font-weight: bold;
+    color:purple;
+}
