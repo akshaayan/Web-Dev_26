@@ -4,6 +4,84 @@
 
 </head>
 <body>
+    <p id="mainTitle">
+        Title
+    </p>
+    <p id = "test" class="cars">
+        Cars are here
+    </p>
+    <p id = "test1" class="cars">
+        Cars here also
+    </p>
+    
+
+    <ul id="autotable">
+        <li>
+            First item
+        </li>
+        
+    </ul>
+    <button id ="myButton">
+        Button to press
+    </button>
+<script>
+    ///for (let i = 0; i < 5; i++){
+    //    console.log(i);
+    //}
+    let j = 1;
+    while (j <= 5) {
+    console.log(j);
+    j++;
+    }
+
+    let a = 10;
+    console.log(a);
+    /*while (a < 20) {
+        let b = 10;
+        console.log(b);
+        b++;
+        a++;
+    }*/
+    /*let x = 10;
+    console.log(x); */
+
+    function greet(name) {
+    console.log("Hello, " + name);
+    }
+    greet(10);
+
+    let user = "Sam";
+    function sayHi() {
+    let message = "Hi, " + user;
+    // console.log(message);
+    return message;
+    }
+    let message = sayHi();            // Logs "Hi, Sam"
+    console.log(message);  // Error! 'message' is local to sayHi()
+
+    let title = document.getElementById("mainTitle"); //grabs an element with id="mainTitle"
+    console.log(title);
+    title.style.fontWeight = 'bold';
+    let carsEl = document.querySelectorAll(".cars");
+    //carsEl.style.fontWeight = 'bold';
+
+    for (let i = 0; i < carsEl.length; i++){
+        carsEl[i].style.fontWeight = 'bold';
+    }
+    let listItem = document.createElement('li');
+    listItem.innerText = "new value";
+    document.body.appendChild(listItem);
+    let x = document.getElementById("autotable");
+    x.appendChild(listItem);
+
+    const btn = document.getElementById("myButton");
+    btn.addEventListener("click", function() {
+    console.log("Button was clicked!");
+    });
+
+    
+
+</script>
 
 </body>
 </html>

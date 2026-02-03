@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Custom Console Output</h1>
+<pre id="log"></pre>
+<script>
+
+    // Store the original console.log function
+
+    var originalLog = console.log;
+
+    // Override the console.log function
+
+    console.log = function(...logs) {
+
+      // Append a new line for each log entry
+
+      var text = logs.map(e => {
+
+        if (typeof e === 'object') {
+
+          // Use JSON.stringify to handle objects nicely
+
+          return JSON.stringify(e, undefined, 2);
+
+        } else {
+
+          return e;
+
+        }
+
+      }).join(' ');
+
+      var logger = document.getElementById('log');
+
+      logger.innerHTML += text + '<br />';
+
+      // Call the original console.log so it still works in DevTools
+
+      originalLog.apply(console, logs);
+
+    };
+
+    // Now, calling console.log will output to both the console and the HTML
+
+    console.log("This message goes to the HTML and the console.");
+
+    console.log("Here is an object:", { a: 1, b: "test" });
+</script>
+</body>
+</html>
+ 
