@@ -1,0 +1,13 @@
+<li [class.completed]="todo.completed">
+
+  @if (!todo.isEditing) {
+
+    <span (click)="onToggle()">
+      {{ todo.text }}
+    </span>
+
+    <button (click)="onRemove()">Remove</button>
+
+  }
+
+</li>

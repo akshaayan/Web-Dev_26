@@ -1,0 +1,44 @@
+<div class="container">
+
+  <h2>Angular 21 To-Do App</h2>
+
+  <input
+    [(ngModel)]="newTodoText"
+    placeholder="New task"
+    (keyup.enter)="addTodo()"
+  >
+
+  <button (click)="addTodo()">Add</button>
+
+
+  <!-- <div class="filters">
+
+    <button (click)="filter='all'">All</button>
+
+    <button (click)="filter='active'">Active</button>
+
+    <button (click)="filter='completed'">Completed</button>
+
+  </div> -->
+
+
+  <ul>
+
+    @for (todo of todos; track todo.id) {
+
+      <app-todo-item
+
+        [todo]="todo"
+
+        (remove)="removeTodo($event)"
+
+        (toggle)="toggleCompleted($event)"
+
+
+      />
+
+    }
+
+  </ul>
+
+</div>
