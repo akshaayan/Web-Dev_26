@@ -1,0 +1,16 @@
+<h1>{{ welcomeMessage() }}</h1>
+
+<div class="card">
+  <p><strong>Visits in this session:</strong> {{ visitCount() }}</p>
+  <button (click)="increaseVisits()">Increase visits</button>
+  <button (click)="renameApp()">Rename app</button>
+</div>
+
+<div class="card">
+  <p>This page demonstrates <strong>Signals</strong>:</p>
+  <ul>
+    <li><code>signal()</code> for state</li>
+    <li><code>computed()</code> for derived state</li>
+    <li>Automatic UI updates when values change</li>
+  </ul>
+</div>

@@ -1,0 +1,43 @@
+.toolbar {
+  display: flex;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.toolbar input {
+  flex: 1;
+  padding: 8px;
+}
+
+.users-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.user-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+  transition: 0.15s ease;
+  background: white;
+}
+
+.user-card:hover {
+  border-color: #0a66c2;
+  transform: translateY(-2px);
+}
+
+.user-card.selected {
+  border-color: #0a66c2;
+  box-shadow: 0 0 0 2px rgba(10, 102, 194, 0.1);
+}
+
+.error {
+  color: #c62828;
+  font-weight: 600;
+}

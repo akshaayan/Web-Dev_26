@@ -1,0 +1,15 @@
+button {
+  margin-bottom: 12px;
+}
+
+.detail-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  background: #fafafa;
+}
+
+.error {
+  color: #c62828;
+  font-weight: 600;
+}
