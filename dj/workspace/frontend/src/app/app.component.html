@@ -1,0 +1,54 @@
+<div class="page">
+  <h1>Book Explorer</h1>
+
+  <div class="toolbar">
+    <input [(ngModel)]="query.search" placeholder="Search title or author" (ngModelChange)="applyFilters()">
+
+    <select [(ngModel)]="query.category" (change)="applyFilters()">
+      <option value="">All categories</option>
+      <option value="backend">backend</option>
+      <option value="frontend">frontend</option>
+      <option value="devops">devops</option>
+      <option value="database">database</option>
+      <option value="testing">testing</option>
+    </select>
+
+    <select [(ngModel)]="query.ordering" (change)="applyFilters()">
+      <option value="-created_at">Newest</option>
+      <option value="price">Price ↑</option>
+      <option value="-price">Price ↓</option>
+      <option value="-rating">Top rated</option>
+      <option value="title">Title A-Z</option>
+    </select>
+  </div>
+
+  <p *ngIf="loading">Loading...</p>
+  <p *ngIf="error">{{ error }}</p>
+
+  <div class="cards" *ngIf="page">
+    <div class="card" *ngFor="let book of page.results">
+      <h3>{{ book.title }}</h3>
+      <p><strong>Author:</strong> {{ book.author }}</p>
+      <p><strong>Category:</strong> {{ book.category }}</p>
+      <p><strong>Rating:</strong> {{ book.rating }}</p>
+
+      <label>
+        Price:
+        <input [(ngModel)]="book.price" type="number" step="0.01">
+      </label>
+
+      <label>
+        In stock:
+        <input [(ngModel)]="book.in_stock" type="checkbox">
+      </label>
+
+      <button (click)="saveBook(book)">Save</button>
+    </div>
+  </div>
+
+  <div class="pager" *ngIf="page">
+    <button (click)="changePage(-1)" [disabled]="!page.previous">Previous</button>
+    <span>Total books: {{ page.count }} | Page: {{ query.page }}</span>
+    <button (click)="changePage(1)" [disabled]="!page.next">Next</button>
+  </div>
+</div>
